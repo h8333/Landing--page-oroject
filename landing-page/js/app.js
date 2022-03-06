@@ -23,7 +23,6 @@
  * 
 */
 const createSections = document.querySelectorAll("section");
-//---------------------------------
 
 // build the nav
 document.addEventListener("DOMContentLoaded",createNavbar);
@@ -37,7 +36,6 @@ function createNavbar()
         list.innerHTML= `<a href="#${section.id}" 
         class="menu__link">
         ${section.dataset.nav}</a>`
-        //****************************************************** */
         //create Function to scroll to view smooth
         list.addEventListener("click",(e) =>
         {
@@ -48,24 +46,22 @@ function createNavbar()
     }
     item.appendChild(dfragemnt);
 }
-////////******************************************************************************* */
 // Add class 'active' to section when near top of viewport
 window.addEventListener("scroll",activSection);
-function activSection(){
-    for(const section of createSections){
+function activSection()
+{
+    for(const section of createSections)
+    {
         const topSection=section.getBoundingClientRect().top;
         const ilink=document.querySelector(`a[href="#${section.id}"]`);
         if(topSection > 0 && topSection <= 300)
         {
             section.classList.add("your-active-class");
-            //section.style.cssText = "background-color: blue;";
             ilink.classList.add("active");
         }
         else
         {
-    
            section.classList.remove("your-active-class");
-        
            ilink.classList.remove("active");
         }
     }
